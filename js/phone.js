@@ -34,19 +34,32 @@ const displayPhones = phones =>{
         </div>
         `;
         phonesContainer.appendChild(newDiv);
-    })
+    });
+    toggleBar(false);
 }
 
-// document.getElementById('btn-field').addEventListener('click',function(){
-//     const inputField = document.getElementById('input-field');
-//     const inputText = inputField.value;
-//     inputField.value = '';
-//     phonesDataLoad(inputText);
-// })
-
-const btnClicked = ()=>{
+document.getElementById('btn-field').addEventListener('click',function(){
+    toggleBar(true);
     const inputField = document.getElementById('input-field');
     const inputText = inputField.value;
     inputField.value = '';
     phonesDataLoad(inputText);
+})
+
+const toggleBar = isLoding =>{
+    const loading = document.getElementById('spinner');
+    if(isLoding){
+        loading.classList.remove('d-none');
+    }
+    else{
+        loading.classList.add('d-none');
+    }
 }
+
+// const btnClicked = ()=>{
+//     const inputField = document.getElementById('input-field');
+//     const inputText = inputField.value;
+//     inputField.value = '';
+//     phonesDataLoad(inputText);
+// }
+
